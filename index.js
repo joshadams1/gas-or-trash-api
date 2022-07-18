@@ -23,7 +23,7 @@ app.get('/teams', async (req, res) => {
         url: 'https://api-baseball.p.rapidapi.com/teams',
         params: {league: '1', season: '2020'},
         headers: {
-          'X-RapidAPI-Key': '0f54c0c558msh970571fee3a871dp1952c4jsn1e3e34489330',
+          'X-RapidAPI-Key': process.env.API_KEY,
           'X-RapidAPI-Host': 'api-baseball.p.rapidapi.com'
         }
       };
