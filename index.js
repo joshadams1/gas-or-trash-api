@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/teams', async (req, res) => {
-    let teams;
+    let request;
     res.header("Access-Control-Allow-Origin", "*");
     const options = {
         method: 'GET',
@@ -29,16 +29,19 @@ app.get('/teams', async (req, res) => {
         }
       };
 
-    const request = await axios.request(options);
+    try {
+        request = await axios.request(options)
+    } catch (error) {
+        console.log(error);
+    }
+    
     if (!request) {
         return res.status(503).send({
             message: 'Failed to grab team data'
         });
     }
-    
-    if (request) {
-        teams = request.data.response.map(team => team.name);
-    }
+
+    const teams = request.data.response.map(team => team.name);
       
     res.json({teams});
 });
