@@ -1,6 +1,6 @@
 const express = require('express');
-const { fstatSync } = require('fs');
-const { request } = require('http');
+// const { fstatSync } = require('fs');
+// const { request } = require('http');
 const fs = require('fs').promises;
 const path = require('path');
 const axios = require("axios");
@@ -9,6 +9,10 @@ const app = express();
 const dataFile = path.join(__dirname, 'data.json');
 
 app.use(express.urlencoded({extended: true}));
+
+app.get('/', (req, res) => {
+    res.send('hello world');
+});
 
 app.get('/teams', async (req, res) => {
     res.header("Access-Control-Allow-Origin", "*");
