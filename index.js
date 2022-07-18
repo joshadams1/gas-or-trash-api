@@ -13,7 +13,7 @@ const dataFile = path.join(__dirname, 'data.json');
 app.use(express.urlencoded({extended: true}));
 
 app.get('/', (req, res) => {
-    res.send('hello world');
+    res.send('hello');
 });
 
 app.get('/teams', async (req, res) => {
