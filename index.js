@@ -1,9 +1,11 @@
 const express = require('express');
-// const { fstatSync } = require('fs');
-// const { request } = require('http');
+const { fstatSync } = require('fs');
+const { request } = require('http');
 const fs = require('fs').promises;
 const path = require('path');
 const axios = require("axios");
+
+require('dotenv').config();
 
 const app = express();
 const dataFile = path.join(__dirname, 'data.json');
@@ -80,4 +82,4 @@ app.post("/poll", async (req, res) => {
 });
 
 
-app.listen(3000, () => console.log('server is running'))
+app.listen(process.env.PORT, () => console.log('server is running'))
