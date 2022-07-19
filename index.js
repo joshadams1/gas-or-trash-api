@@ -41,7 +41,12 @@ app.get('/teams', async (req, res) => {
         });
     }
 
-    const teams = request.data.response.map(team => team.name);
+    const teams = request.data.response.map(team => {
+        return {
+            name: team.name,
+            image: team.logo
+        }
+    });
       
     res.json({teams});
 });
