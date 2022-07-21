@@ -4,12 +4,12 @@ const { request } = require('http');
 const fs = require('fs').promises;
 const path = require('path');
 const axios = require("axios");
+const cors = require("cors");
 
 require('dotenv').config();
 
 const app = express();
 const dataFile = path.join(__dirname, 'data.json');
-const cors=require("cors");
 const corsOptions ={
    origin:'*', 
    credentials:true,            //access-control-allow-credentials:true
